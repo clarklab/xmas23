@@ -11,10 +11,10 @@
 
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <a-assets>
-            <a-asset-item id="eagle-model" src="path/to/pixeled_eagle.glb"></a-asset-item>
+            <a-asset-item id="eagle-model" src="pixeled_eagle.glb"></a-asset-item>
         </a-assets>
 
-        <a-marker preset="custom" type='pattern' url="path/to/pattern-qr-code.patt">
+        <a-marker preset="custom" type='pattern' url="pattern-qr-code.patt">
             <a-entity gltf-model="#eagle-model" scale="1 1 1" position="0 0.5 0" rotation="0 0 0"></a-entity>
         </a-marker>
 
