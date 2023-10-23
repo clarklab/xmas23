@@ -1,26 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Room Blockout</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-</head>
-<body style='margin: 0; overflow: hidden;'>
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    </head>
 
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth: 1440; sourceHeight: 2560;">
-        <a-assets>
-            <a-asset-item id="room-model" src="room.glb"></a-asset-item>
-        </a-assets>
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item
+                    id="animated-asset"
+                    src="assets/asset.glb"
+                ></a-asset-item>
+                <audio id="music-world" src="assets/what-the-world.mp3"></audio>
+                <audio id="music" src="assets/we-wish-you.mp3"></audio>
+            </a-assets>
 
-        <a-marker preset="hiro">
-            <a-entity gltf-model="#room-model" scale="1 1 1" position="0 1 0"></a-entity>
-        </a-marker>
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.0004995226268346856 0.0004995226268346856 0.0004995226268346856"
+                    animation-mixer="loop: repeat"
+                    animation="property: rotation; to: 0 360 0; loop: true; dur: 20000"
+                    gltf-model="#animated-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+
+                <a-entity id="sound-entity" sound="src: #music;"></a-entity>
+
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+
+        <script>
+            document.querySelector('#animated-marker').addEventListener('markerFound', function(){
+                document.querySelector('#sound-entity').components.sound.playSound();
+            });
+
+            document.querySelector('#animated-marker').addEventListener('markerLost', function(){
+                document.querySelector('#sound-entity').components.sound.pauseSound();
+            });
+        </script>
 
 
-        <a-entity camera></a-entity>
-    </a-scene>
-
-</body>
+    </body>
 </html>
