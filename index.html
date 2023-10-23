@@ -13,11 +13,11 @@
         <a-assets>
             <a-asset-item id="room-model" src="room.glb"></a-asset-item>
         </a-assets>
+        
+        <a-marker preset="hiro">
+            <a-entity gltf-model="#room-model" scale="0.5 0.5 0.5" position="0 0.5 0"></a-entity>
+        </a-marker>
 
-        <!-- The room model that appears on the Hiro marker -->
-        <a-marker-camera preset="hiro">
-            <a-entity gltf-model="#room-model" scale="0.5 0.5 0.5" position="0 0 0"></a-entity>
-        </a-marker-camera>
 
         <a-entity camera></a-entity>
     </a-scene>
