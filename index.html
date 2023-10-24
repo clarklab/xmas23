@@ -260,11 +260,7 @@
                 ></a-asset-item>
                 <audio id="music-1" src="assets/what-the-world.mp3"></audio>
                 <audio id="music-2" src="assets/we-wish-you.mp3"></audio>
-                <audio id="music-3" src="assets/fur-elise.mp3"></audio>
-                <audio id="music-4" src="assets/greensleeves.mp3"></audio>
-                <audio id="music-5" src="assets/harry-potter.mp3"></audio>
-                <audio id="music-6" src="assets/o-christmas-tree.mp3"></audio>
-                <audio id="music-7" src="assets/what-child-is-this.mp3"></audio>
+                <audio id="music-3" src="assets/harry-potter.mp3"></audio>
             </a-assets>
 
             <a-marker
@@ -287,7 +283,7 @@
                     gesture-handler
                 ></a-entity>
 
-                <a-entity id="sound-entity" sound="src: #music;"></a-entity>
+                <a-entity id="sound-entity" sound="src: #music-1;"></a-entity>
 
             </a-marker>
 
@@ -297,7 +293,7 @@
         <script>
 
             // List of music tracks
-const musicTracks = ['#music-1', '#music-2', '#music-3', '#music-4', '#music-5', '#music-6', '#music-7']; // Add more if you have more tracks
+const musicTracks = ['#music-1', '#music-2', '#music-3']; // Add more if you have more tracks
 
 document.querySelector('#animated-marker').addEventListener('markerFound', function() {
     // Randomly select a track
