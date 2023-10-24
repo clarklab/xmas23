@@ -258,8 +258,13 @@
                     id="animated-asset"
                     src="assets/asset.glb"
                 ></a-asset-item>
-                <audio id="music" src="assets/what-the-world.mp3"></audio>
-                <audio id="music-world" src="assets/we-wish-you.mp3"></audio>
+                <audio id="music-1" src="assets/what-the-world.mp3"></audio>
+                <audio id="music-2" src="assets/we-wish-you.mp3"></audio>
+                <audio id="music-3" src="assets/fur-elise.mp3"></audio>
+                <audio id="music-4" src="assets/greensleeves.mp3"></audio>
+                <audio id="music-5" src="assets/harry-potter.mp3"></audio>
+                <audio id="music-6" src="assets/o-christmas-tree.mp3"></audio>
+                <audio id="music-7" src="assets/what-child-is-this.mp3"></audio>
             </a-assets>
 
             <a-marker
@@ -290,9 +295,26 @@
         </a-scene>
 
         <script>
-            document.querySelector('#animated-marker').addEventListener('markerFound', function(){
-                document.querySelector('#sound-entity').components.sound.playSound();
-            });
+
+            // List of music tracks
+const musicTracks = ['#music-1', '#music-2', '#music-3', '#music-4', '#music-5', '#music-6', '#music-7']; // Add more if you have more tracks
+
+document.querySelector('#animated-marker').addEventListener('markerFound', function() {
+    // Randomly select a track
+    let randomTrack = musicTracks[Math.floor(Math.random() * musicTracks.length)];
+    
+    // Set the selected track as the sound source
+    let soundEntity = document.querySelector('#sound-entity');
+    soundEntity.setAttribute('sound', 'src', randomTrack);
+    
+    // Play the sound
+    soundEntity.components.sound.playSound();
+});
+
+document.querySelector('#animated-marker').addEventListener('markerLost', function() {
+    document.querySelector('#sound-entity').components.sound.pauseSound();
+});
+
 
             document.querySelector('#animated-marker').addEventListener('markerLost', function(){
                 document.querySelector('#sound-entity').components.sound.pauseSound();
