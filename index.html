@@ -6,9 +6,61 @@
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+          html, body, pre, code, kbd, samp {
+              font-family: "Press Start 2P";
+          }
+        </style>   
+        <title>Merry Christmas, Ya Filthy Animals</title>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+
+        <div class="overlay text-center fixed top-0 left-0 right-0 bottom-0 border-8 border-red-600 z-10">
+
+            <div class="checks flex flex-wrap w-4 h-4 absolute -top-2 -left-2">
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-red-600"></div>
+            </div>
+
+            <div class="checks flex flex-wrap w-4 h-4 absolute -top-2 -right-2">
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-red-600"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+            </div>
+
+            <div class="checks flex flex-wrap w-4 h-4 absolute -bottom-2 -left-2">
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-red-600"></div>
+                <div class="w-2 h-2 bg-white"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+            </div>
+
+            <div class="checks flex flex-wrap w-4 h-4 absolute -bottom-2 -right-2">
+                <div class="w-2 h-2 bg-red-600"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-green-500"></div>
+                <div class="w-2 h-2 bg-white"></div>
+            </div>
+
+            <div class="fixed text-xs bottom-6 text-center w-full animate-bounce text-white">
+                Happy holidays from Clark and Angie!
+            </div>
+
+            <div class="title inline-block bg-red-600 text-white mx-auto px-3 py-1 text-2xl relative">
+            XMAS 2023
+            <div class="absolute w-1 h-1 bg-white bottom-0 left-0"> </div>
+            <div class="absolute w-1 h-1 bg-white bottom-0 right-0"> </div>
+        </div>
+            
+        </div>
+
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
