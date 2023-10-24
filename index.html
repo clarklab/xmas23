@@ -8,17 +8,201 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+        
+
         <style>
           html, body, pre, code, kbd, samp {
               font-family: "Press Start 2P";
           }
+          .fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.-bottom-2 {
+  bottom: -0.5rem;
+}
+
+.-left-2 {
+  left: -0.5rem;
+}
+
+.-right-2 {
+  right: -0.5rem;
+}
+
+.-top-2 {
+  top: -0.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-1 {
+  height: 0.25rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.border-8 {
+  border-width: 8px;
+  border-style: solid;
+}
+
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38);
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94);
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255);
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
         </style>   
         <title>Merry Christmas, Ya Filthy</title>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
 
-        <div class="overlay text-center fixed w-screen h-screen left-0 top-0 border-8 border-red-600 z-10">
+        <div class="overlay text-center fixed bottom-0 right-0 left-0 top-0 border-8 border-red-600 z-10">
 
             <div class="checks flex flex-wrap w-4 h-4 absolute -top-2 -left-2">
                 <div class="w-2 h-2 bg-white"></div>
@@ -48,14 +232,14 @@
                 <div class="w-2 h-2 bg-white"></div>
             </div>
 
-            <div class="fixed text-xs bottom-6 text-center w-full animate-bounce text-white">
-                Happy holidays from Clark and Angie!
+            <div class="fixed text-sm bottom-6 text-center w-full animate-bounce text-white">
+                Happy holidays<br>from Clark and Angie!
             </div>
 
             <div class="title inline-block bg-red-600 text-white mx-auto px-3 py-1 text-2xl relative">
             XMAS 2023
-            <div class="absolute w-1 h-1 bg-white bottom-0 left-0"> </div>
-            <div class="absolute w-1 h-1 bg-white bottom-0 right-0"> </div>
+            <div class="absolute w-2 h-2 bg-white bottom-0 left-0"> </div>
+            <div class="absolute w-2 h-2 bg-white bottom-0 right-0"> </div>
         </div>
             
         </div>
