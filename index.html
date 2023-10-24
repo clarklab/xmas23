@@ -232,7 +232,7 @@
                 <div class="w-2 h-2 bg-white"></div>
             </div>
 
-            <div class="fixed text-sm bottom-6 text-center w-full animate-bounce text-white">
+            <div class="fixed text-sm bottom-6 left-0 right-0 text-center w-full animate-bounce text-white">
                 Happy holidays<br>from Clark and Angie!
             </div>
 
@@ -317,6 +317,15 @@ document.querySelector('#animated-marker').addEventListener('markerLost', functi
             });
         </script>
 
+<!-- required snowstorm JS, default behaviour -->
+<script src="snowstorm.js"></script>
+
+<!-- now, we'll customize the snowStorm object -->
+<script>
+snowStorm.flakesMaxActive = 96;    // show more snow on screen at once
+snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
+snowStorm.excludeMobile = false;
+</script>
 
     </body>
 </html>
