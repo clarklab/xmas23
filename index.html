@@ -275,7 +275,7 @@
             >
                 <a-entity
                     id="bowser-model"
-                    scale="0.0004995226268346856 0.0004995226268346856 0.0004995226268346856"
+                    scale="0.03746419882929631 0.03746419882929631 0.03746419882929631"
                     animation-mixer="loop: repeat"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 20000"
                     gltf-model="#animated-asset"
@@ -315,6 +315,23 @@ document.querySelector('#animated-marker').addEventListener('markerLost', functi
             document.querySelector('#animated-marker').addEventListener('markerLost', function(){
                 document.querySelector('#sound-entity').components.sound.pauseSound();
             });
+
+document.querySelector('#bowser-model').addEventListener('model-loaded', function() {
+    // This will be called when the model is loaded
+    
+    let model = this.getObject3D('mesh'); // Access the three.js object
+    
+    if (!model) return; // If for some reason the model is not loaded, exit the function
+    
+    model.traverse((node) => {
+        // Check if this part of the model is a mesh and has the name 'the_sexiness'
+        if (node.isMesh && node.name === 'the_sexiness') {
+            node.material.color.set('red'); // Set the material color to red
+            node.material.needsUpdate = true; // This tells three.js to update the material next frame
+        }
+    });
+});
+
         </script>
 
 <!-- required snowstorm JS, default behaviour -->
