@@ -264,9 +264,11 @@
                     id="snow-asset"
                     src="assets/snow_01.glb"
                 ></a-asset-item>
-                <audio id="music-1" src="assets/what-the-world.mp3"></audio>
+                <audio id="music-1" src="assets/greensleeves.mp3"></audio>
                 <audio id="music-2" src="assets/we-wish-you.mp3"></audio>
                 <audio id="music-3" src="assets/harry-potter.mp3"></audio>
+                <audio id="music-3" src="assets/o-christmas-tree.mp3"></audio>
+
             </a-assets>
 
             <a-marker
@@ -309,7 +311,7 @@
         <script>
 
             // List of music tracks
-const musicTracks = ['#music-1', '#music-2', '#music-3']; // Add more if you have more tracks
+const musicTracks = ['#music-1', '#music-2', '#music-3', '#music-4']; // Add more if you have more tracks
 
 document.querySelector('#animated-marker').addEventListener('markerFound', function() {
     // Randomly select a track
