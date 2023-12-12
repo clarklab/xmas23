@@ -10,8 +10,6 @@
         <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-
-
         <style>
           html, body, pre, code, kbd, samp {
               font-family: "Press Start 2P";
@@ -260,10 +258,7 @@
                     id="animated-asset"
                     src="assets/asset-new.glb"
                 ></a-asset-item>
-                <a-asset-item
-                    id="snow-asset"
-                    src="assets/snow_01.glb"
-                ></a-asset-item>
+
                 <audio id="music-1" src="assets/greensleeves.mp3"></audio>
                 <audio id="music-2" src="assets/we-wish-you.mp3"></audio>
                 <audio id="music-3" src="assets/harry-potter.mp3"></audio>
@@ -287,16 +282,6 @@
                     animation-mixer="loop: repeat"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 20000"
                     gltf-model="#animated-asset"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-
-                <a-entity
-                    id="snow_01"
-                    scale="5.263071279551065 5.263071279551065 5.263071279551065"
-                    animation-mixer="loop: repeat"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 20000"
-                    gltf-model="#snow-asset"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
@@ -330,100 +315,18 @@ document.querySelector('#animated-marker').addEventListener('markerLost', functi
 });
 
 
-            document.querySelector('#animated-marker').addEventListener('markerLost', function(){
-                document.querySelector('#sound-entity').components.sound.pauseSound();
-            });
-
-
-let lastX, lastY, lastZ;
-let moveCounter = 0;
-
-window.addEventListener('devicemotion', function(event) {
-  let x = event.accelerationIncludingGravity.x;
-  let y = event.accelerationIncludingGravity.y;
-  let z = event.accelerationIncludingGravity.z;
-
-  if (!lastX) {
-    lastX = x;
-    lastY = y;
-    lastZ = z;
-    return;
-  }
-
-  let deltaX = Math.abs(x - lastX);
-  let deltaY = Math.abs(y - lastY);
-  let deltaZ = Math.abs(z - lastZ);
-
-  if (deltaX + deltaY + deltaZ > 3) { // Threshold value, adjust as needed
-    moveCounter++;
-  } else {
-    moveCounter = Math.max(0, moveCounter - 1);
-  }
-
-  console.log('Move counter:', moveCounter); // Log the moveCounter for debugging
-
-  if (moveCounter > 2) { // Another threshold, adjust as needed
-    spinSnowEntity();
-    moveCounter = 0; // Ensure the counter is reset after the spin is triggered
-  }
-
-  lastX = x;
-  lastY = y;
-  lastZ = z;
+document.querySelector('#animated-marker').addEventListener('markerLost', function(){
+    document.querySelector('#sound-entity').components.sound.pauseSound();
 });
 
-
-
-function spinSnowEntity() {
-  const snowEntity = document.querySelector('#snow_01');
-
-  if (snowEntity) {
-    // Remove any existing animations to prevent conflicts
-    document.querySelector('#snow_01').removeAttribute('animation');
-
-    // Apply the new spinning animation
-    document.querySelector('#snow_01').setAttribute('animation', 'property: rotation; to: 0 720 0; dur: 2000; loop: false');
-
-    requestAnimationFrame(() => {
-      // Now apply the animation again
-      snowEntity.setAttribute('animation', 'property: rotation; to: 0 720 0; dur: 2000; loop: false');
-    });
-
-
-    // Reset rotation after spinning
-    snowEntity.addEventListener('animationcomplete', function () {
-      console.log('Spin animation complete, resetting...');
-        // It's crucial to remove the animation attribute to reset its state
-        snowEntity.removeAttribute('animation');
-        // Now apply the default rotation again if needed
-        snowEntity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 20000');
-    });
-  }
-}
-
-
-
-
-// Call this function to initialize the snow entity's rotation
-function initSnowEntityRotation() {
-  const snowEntity = document.querySelector('#snow_01');
-  if (snowEntity) {
-    // Set the initial rotation here if necessary
-    snowEntity.setAttribute('rotation', '0 0 0');
-  }
-}
-
-// Initialize the snow entity's rotation when the document loads
-document.addEventListener('DOMContentLoaded', initSnowEntityRotation);
-
-        </script>
+</script>
 
 <!-- required snowstorm JS, default behaviour -->
 <script src="snowstorm.js"></script>
 
 <!-- now, we'll customize the snowStorm object -->
 <script>
-snowStorm.flakesMaxActive = 96;    // show more snow on screen at once
+snowStorm.flakesMaxActive = 128;    // show more snow on screen at once
 snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
 snowStorm.excludeMobile = false;
 </script>
