@@ -197,7 +197,7 @@
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
         </style>   
-        <title>Merry Christmas, Ya Filthy</title>
+        <title>Merry Christmas, Ya Filthy Animal</title>
     </head>
 
     <body class="" style="margin: 0; overflow: hidden;">
@@ -246,7 +246,7 @@
 
         <a-scene
             vr-mode-ui="enabled: false;"
-            loading-screen="enabled: true;"
+            loading-screen="dotsColor: red; backgroundColor: white"
             renderer="logarithmicDepthBuffer: true;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960;"
             id="scene"
@@ -326,9 +326,10 @@ document.querySelector('#animated-marker').addEventListener('markerLost', functi
 
 <!-- now, we'll customize the snowStorm object -->
 <script>
-snowStorm.flakesMaxActive = 128;    // show more snow on screen at once
+snowStorm.flakesMaxActive = 200;    // show more snow on screen at once
 snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
 snowStorm.excludeMobile = false;
+snowStorm.animationInterval = 24;
 </script>
 
     </body>
